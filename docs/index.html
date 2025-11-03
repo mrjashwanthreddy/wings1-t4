@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring Boot Wings 1 — 50-Question Timed Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Spring Boot Wings 1 — Timed Quiz</h1>
+        <div class="controls">
+            <label>
+                Mode:
+                <select id="mode">
+                    <option value="timed" selected>Timed (2 min/question)</option>
+                    <option value="practice">Practice (no timer)</option>
+                </select>
+            </label>
+            <label>
+                Questions per quiz:
+                <input id="count" type="number" min="10" max="50" value="50" />
+            </label>
+            <button id="startBtn">Start Quiz</button>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section id="statusBar" class="status hidden">
+            <div>Question <span id="qIndex">1</span>/<span id="qTotal">50</span></div>
+            <div id="timer" class="timer">02:00</div>
+            <div id="progress" class="progress"></div>
+        </section>
+
+        <section id="quiz" class="quiz hidden">
+            <div id="questionMeta" class="meta"></div>
+            <h2 id="questionText"></h2>
+            <form id="optionsForm" class="options"></form>
+            <div class="nav">
+                <button id="prevBtn" type="button">Previous</button>
+                <button id="skipBtn" type="button">Skip</button>
+                <button id="nextBtn" type="button">Next</button>
+                <button id="submitBtn" type="button" class="primary">Submit</button>
+            </div>
+        </section>
+
+        <section id="result" class="result hidden">
+            <h2>Quiz Report</h2>
+            <div id="scoreSummary"></div>
+            <div id="breakdown"></div>
+            <div class="report-actions">
+                <button id="reviewBtn">Review Questions</button>
+                <button id="exportCsvBtn">Export CSV</button>
+                <button onclick="window.print()">Print / Save as PDF</button>
+            </div>
+            <div id="reviewPanel" class="review hidden"></div>
+        </section>
+
+        <section id="loading" class="loading">Loading questions…</section>
+    </main>
+
+    <footer class="app-footer">
+        <a href="./questions.html" target="_blank">All Questions (Printable)</a> |
+        <a href="./answer-key.html" target="_blank">Answer Key (Printable)</a>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

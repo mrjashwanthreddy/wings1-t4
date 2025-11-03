@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>All Questions (Printable) — Spring Boot Wings 1</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .a {
+            display: none;
+        }
+
+        .page {
+            page-break-inside: avoid;
+            margin: 10px 0;
+        }
+
+        .qid {
+            color: #888;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>All Questions — Print as PDF</h1>
+        <button onclick="window.print()">Print / Save as PDF</button>
+    </header>
+    <main class="app-main" id="root">Loading…</main>
+    <script>
+        fetch('questions.json', { cache: 'no-store' }).then(r => r.json()).then(items => {
+            const root = document.getElementById('root');
+            root.innerHTML = items.map((q, i) => {
+                const opts = q.options.map((o, idx) => `<li><strong>${String.fromCharCode(65 + idx)}.</strong> ${o.text}</li>`).join('');
+                return `<div class="page">
+          <div class="meta"><span class="qid">#${i + 1}</span>
+            <span class="tag topic">${q.topic}</span>
+            <span class="tag diff ${q.difficulty}">${q.difficulty}</span>
+            <span class="tag type">${q.type === 'mc-multi' ? 'Multiple' : 'Single'}</span>
+          </div>
+          <h3>${q.text}</h3>
+          <ol>${opts}</ol>
+        </div>`;
+            }).join('');
+        }).catch(e => {
+            document.getElementById('root').textContent = 'Failed to load questions.json';
+            console.error(e);
+        });
+    </script>
+</body>
+
+</html>

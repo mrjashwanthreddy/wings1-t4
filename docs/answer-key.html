@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Answer Key (Printable) — Spring Boot Wings 1</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .key {
+            display: grid;
+            gap: 6px;
+        }
+
+        .row {
+            border-bottom: 1px dashed #2a376e;
+            padding: 6px 0;
+        }
+
+        .qid {
+            width: 60px;
+            display: inline-block;
+            color: #9fb1ff;
+        }
+
+        .exp {
+            color: #b9c3ea;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Answer Key — Print as PDF</h1>
+        <button onclick="window.print()">Print / Save as PDF</button>
+    </header>
+    <main class="app-main">
+        <div id="root" class="key">Loading…</div>
+    </main>
+    <script>
+        fetch('questions.json', { cache: 'no-store' }).then(r => r.json()).then(items => {
+            const root = document.getElementById('root');
+            root.innerHTML = items.map((q, i) => {
+                const corrLabels = q.correct.map(cid => {
+                    const idx = q.options.findIndex(o => o.id === cid);
+                    return idx >= 0 ? String.fromCharCode(65 + idx) : cid;
+                });
+                return `<div class="row">
+          <span class="qid">#${i + 1}</span>
+          <strong>${corrLabels.join(', ')}</strong>
+          ${q.expl ? `<div class="exp">${q.expl}</div>` : ''}
+        </div>`;
+            }).join('');
+        }).catch(e => {
+            document.getElementById('root').textContent = 'Failed to load questions.json';
+            console.error(e);
+        });
+    </script>
+</body>
+
+</html>

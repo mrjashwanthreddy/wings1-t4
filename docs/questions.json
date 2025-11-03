@@ -1,0 +1,586 @@
+[
+    {
+        "id": "Q-BOOT-ANNO-001",
+        "topic": "Spring Boot Annotations",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "Which annotation enables component scanning and auto-configuration by default in a Spring Boot app?",
+        "options": [
+            {
+                "id": "A",
+                "text": "@SpringBootApplication"
+            },
+            {
+                "id": "B",
+                "text": "@Configuration"
+            },
+            {
+                "id": "C",
+                "text": "@ComponentScan"
+            },
+            {
+                "id": "D",
+                "text": "@EnableAutoConfiguration"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "@SpringBootApplication composes @Configuration, @EnableAutoConfiguration, and @ComponentScan."
+    },
+    {
+        "id": "Q-BOOT-ANNO-002",
+        "topic": "Spring Boot Annotations",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "You have two beans of the same type; one is marked @Primary. Which bean is injected by type?",
+        "options": [
+            {
+                "id": "A",
+                "text": "Injection fails"
+            },
+            {
+                "id": "B",
+                "text": "Random bean"
+            },
+            {
+                "id": "C",
+                "text": "The @Primary bean"
+            },
+            {
+                "id": "D",
+                "text": "The earliest defined bean"
+            }
+        ],
+        "correct": [
+            "C"
+        ],
+        "expl": "@Primary resolves ambiguity for by-type injection."
+    },
+    {
+        "id": "Q-BOOT-ARCH-003",
+        "topic": "Spring Boot Architecture",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "A @Configuration class uses proxyBeanMethods=false. What changes?",
+        "options": [
+            {
+                "id": "A",
+                "text": "@Bean methods can return null"
+            },
+            {
+                "id": "B",
+                "text": "No CGLIB proxy; inter-@Bean calls are not intercepted"
+            },
+            {
+                "id": "C",
+                "text": "@Bean methods are ignored"
+            },
+            {
+                "id": "D",
+                "text": "Component scanning is disabled"
+            }
+        ],
+        "correct": [
+            "B"
+        ],
+        "expl": "Lite mode: direct method calls do not go through the container."
+    },
+    {
+        "id": "Q-BOOT-DEPS-004",
+        "topic": "Spring Boot Dependencies",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "Which starter brings Spring MVC with embedded Tomcat by default?",
+        "options": [
+            {
+                "id": "A",
+                "text": "spring-boot-starter"
+            },
+            {
+                "id": "B",
+                "text": "spring-boot-starter-web"
+            },
+            {
+                "id": "C",
+                "text": "spring-boot-starter-actuator"
+            },
+            {
+                "id": "D",
+                "text": "spring-boot-starter-security"
+            }
+        ],
+        "correct": [
+            "B"
+        ],
+        "expl": "starter-web pulls MVC + Jackson + embedded Tomcat."
+    },
+    {
+        "id": "Q-LOG-CACHE-005",
+        "topic": "Logging & Caching in Spring Boot",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "Which annotation caches a method’s return value for subsequent identical calls?",
+        "options": [
+            {
+                "id": "A",
+                "text": "@Cacheable"
+            },
+            {
+                "id": "B",
+                "text": "@CacheEvict"
+            },
+            {
+                "id": "C",
+                "text": "@CachePut"
+            },
+            {
+                "id": "D",
+                "text": "@Cachable"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "@Cacheable stores the return value keyed by arguments."
+    },
+    {
+        "id": "Q-ORM-DB-006",
+        "topic": "ORM & Database Connectivity",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "Accessing a LAZY association outside a transaction typically results in:",
+        "options": [
+            {
+                "id": "A",
+                "text": "Auto-fetch"
+            },
+            {
+                "id": "B",
+                "text": "LazyInitializationException"
+            },
+            {
+                "id": "C",
+                "text": "Null only"
+            },
+            {
+                "id": "D",
+                "text": "EAGER fallback"
+            }
+        ],
+        "correct": [
+            "B"
+        ],
+        "expl": "The persistence context is closed; LAZY load fails."
+    },
+    {
+        "id": "Q-AUTH-007",
+        "topic": "Authorization & Authentication",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "For a stateless JWT-based REST API in Spring Security, which is typically disabled?",
+        "options": [
+            {
+                "id": "A",
+                "text": "CSRF"
+            },
+            {
+                "id": "B",
+                "text": "Authorization"
+            },
+            {
+                "id": "C",
+                "text": "CORS"
+            },
+            {
+                "id": "D",
+                "text": "Password encoding"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "CSRF tokens are for stateful browser sessions."
+    },
+    {
+        "id": "Q-MVC-JPA-008",
+        "topic": "Spring MVC & JPA",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "Controller returns a JPA entity with a bidirectional relation causing recursion. A fix is:",
+        "options": [
+            {
+                "id": "A",
+                "text": "@JsonIgnore on one side"
+            },
+            {
+                "id": "B",
+                "text": "Switch to XML"
+            },
+            {
+                "id": "C",
+                "text": "Use @Valid"
+            },
+            {
+                "id": "D",
+                "text": "Add interceptor"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "Prevent infinite recursion with @JsonIgnore or @JsonBackReference."
+    },
+    {
+        "id": "Q-BOOT-ARCH-009",
+        "topic": "Spring Boot Architecture",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "server.port: 0 in application.yml means:",
+        "options": [
+            {
+                "id": "A",
+                "text": "Port 80"
+            },
+            {
+                "id": "B",
+                "text": "Random ephemeral port"
+            },
+            {
+                "id": "C",
+                "text": "Disable server"
+            },
+            {
+                "id": "D",
+                "text": "Port 443"
+            }
+        ],
+        "correct": [
+            "B"
+        ],
+        "expl": "Port 0 picks a free ephemeral port."
+    },
+    {
+        "id": "Q-CRUD-010",
+        "topic": "CRUD Operation",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "Which HTTP method is conventionally used to update an existing resource entirely?",
+        "options": [
+            {
+                "id": "A",
+                "text": "GET"
+            },
+            {
+                "id": "B",
+                "text": "POST"
+            },
+            {
+                "id": "C",
+                "text": "PUT"
+            },
+            {
+                "id": "D",
+                "text": "PATCH"
+            }
+        ],
+        "correct": [
+            "C"
+        ],
+        "expl": "PUT replaces the resource; PATCH applies partial updates."
+    },
+    {
+        "id": "Q-MICRO-011",
+        "topic": "Microservices Architecture",
+        "difficulty": "medium",
+        "type": "mc-multi",
+        "text": "Select all patterns that help prevent cascading failures in microservices.",
+        "options": [
+            {
+                "id": "A",
+                "text": "Circuit Breaker"
+            },
+            {
+                "id": "B",
+                "text": "Unbounded retries on POST"
+            },
+            {
+                "id": "C",
+                "text": "Bulkhead"
+            },
+            {
+                "id": "D",
+                "text": "Timeouts"
+            }
+        ],
+        "correct": [
+            "A",
+            "C",
+            "D"
+        ],
+        "expl": "Circuit breakers, bulkheads, and timeouts limit failure propagation."
+    },
+    {
+        "id": "Q-LOG-012",
+        "topic": "Logging & Caching in Spring Boot",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "To enable response compression (gzip) in Spring Boot MVC, configure:",
+        "options": [
+            {
+                "id": "A",
+                "text": "server.compression.enabled=true"
+            },
+            {
+                "id": "B",
+                "text": "management.compression=true"
+            },
+            {
+                "id": "C",
+                "text": "@Compressed"
+            },
+            {
+                "id": "D",
+                "text": "Undertow only"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "Use server.compression.* properties."
+    },
+    {
+        "id": "Q-DESIGN-013",
+        "topic": "Spring Boot Design Pattern",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "Which pattern best fits switching between multiple implementations based on a qualifier?",
+        "options": [
+            {
+                "id": "A",
+                "text": "Strategy"
+            },
+            {
+                "id": "B",
+                "text": "Singleton"
+            },
+            {
+                "id": "C",
+                "text": "Observer"
+            },
+            {
+                "id": "D",
+                "text": "Builder"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "Strategy encapsulates interchangeable behaviors."
+    },
+    {
+        "id": "Q-CORE-014",
+        "topic": "Core Java",
+        "difficulty": "hard",
+        "type": "mc-single",
+        "text": "Which choice avoids precision loss for representing monetary amounts?",
+        "options": [
+            {
+                "id": "A",
+                "text": "double"
+            },
+            {
+                "id": "B",
+                "text": "float"
+            },
+            {
+                "id": "C",
+                "text": "BigDecimal"
+            },
+            {
+                "id": "D",
+                "text": "long, rounding on display"
+            }
+        ],
+        "correct": [
+            "C"
+        ],
+        "expl": "BigDecimal preserves decimal precision required for money."
+    },
+    {
+        "id": "Q-SPRING-AI-015",
+        "topic": "Spring AI",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "In Spring AI, which component abstracts model providers (e.g., OpenAI, Azure) via a common API?",
+        "options": [
+            {
+                "id": "A",
+                "text": "ChatClient"
+            },
+            {
+                "id": "B",
+                "text": "JdbcTemplate"
+            },
+            {
+                "id": "C",
+                "text": "BeanFactory"
+            },
+            {
+                "id": "D",
+                "text": "KafkaTemplate"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "Spring AI’s ChatClient offers a provider-agnostic abstraction."
+    },
+    {
+        "id": "Q-AUTH-016",
+        "topic": "Authorization & Authentication",
+        "difficulty": "medium",
+        "type": "mc-multi",
+        "text": "Select all correct statements for JWT-based APIs in Spring Security.",
+        "options": [
+            {
+                "id": "A",
+                "text": "Disable CSRF for stateless APIs"
+            },
+            {
+                "id": "B",
+                "text": "Use httpBasic for token parsing"
+            },
+            {
+                "id": "C",
+                "text": "Validate signature and expiration"
+            },
+            {
+                "id": "D",
+                "text": "Set sessionCreationPolicy(STATELESS)"
+            }
+        ],
+        "correct": [
+            "A",
+            "C",
+            "D"
+        ],
+        "expl": "Stateless config + token validation; basic auth is unrelated."
+    },
+    {
+        "id": "Q-ORM-DB-017",
+        "topic": "ORM & Database Connectivity",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "Which JPA feature helps avoid N+1 queries on a collection?",
+        "options": [
+            {
+                "id": "A",
+                "text": "EAGER everywhere"
+            },
+            {
+                "id": "B",
+                "text": "Fetch join or @EntityGraph"
+            },
+            {
+                "id": "C",
+                "text": "Bigger pool"
+            },
+            {
+                "id": "D",
+                "text": "@Valid"
+            }
+        ],
+        "correct": [
+            "B"
+        ],
+        "expl": "Fetch joins or entity graphs pull related data efficiently."
+    },
+    {
+        "id": "Q-MICRO-018",
+        "topic": "Microservices Architecture",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "Client-side service discovery in Spring typically uses:",
+        "options": [
+            {
+                "id": "A",
+                "text": "Random DNS only"
+            },
+            {
+                "id": "B",
+                "text": "@LoadBalanced RestTemplate/WebClient"
+            },
+            {
+                "id": "C",
+                "text": "Controllers"
+            },
+            {
+                "id": "D",
+                "text": "JPA repository"
+            }
+        ],
+        "correct": [
+            "B"
+        ],
+        "expl": "Load-balanced clients resolve service names via discovery."
+    },
+    {
+        "id": "Q-BOOT-DEPS-019",
+        "topic": "Spring Boot Dependencies",
+        "difficulty": "easy",
+        "type": "mc-single",
+        "text": "Which starter adds metrics and health endpoints?",
+        "options": [
+            {
+                "id": "A",
+                "text": "spring-boot-starter-actuator"
+            },
+            {
+                "id": "B",
+                "text": "spring-boot-starter-batch"
+            },
+            {
+                "id": "C",
+                "text": "spring-boot-starter-aop"
+            },
+            {
+                "id": "D",
+                "text": "spring-boot-starter-validation"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "Actuator exposes health, metrics, and more."
+    },
+    {
+        "id": "Q-MVC-JPA-020",
+        "topic": "Spring MVC & JPA",
+        "difficulty": "medium",
+        "type": "mc-single",
+        "text": "Global CORS for SPA cookies requires:",
+        "options": [
+            {
+                "id": "A",
+                "text": "Allow-credentials true and exact allowed origin(s)"
+            },
+            {
+                "id": "B",
+                "text": "Wildcard origin"
+            },
+            {
+                "id": "C",
+                "text": "Disable HTTPS"
+            },
+            {
+                "id": "D",
+                "text": "Disable CORS"
+            }
+        ],
+        "correct": [
+            "A"
+        ],
+        "expl": "Credentials can’t be used with wildcard origins."
+    }
+]
